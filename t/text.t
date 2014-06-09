@@ -15,6 +15,12 @@ use Text::Markdown;
 }
 
 {
+    my $doc = parse-markdown "One slide.\n\nTwo paragraphs and some blanks.\n\n\n\n";
+
+    is +$doc.children, 2, "input ending with newline chars";
+}
+
+{
     my $doc = parse-markdown "One slide with *italics* in it.";
     my $para = $doc.children[0];
 
